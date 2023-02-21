@@ -1,4 +1,4 @@
-class Answer {
+export class Answer {
     code: AnswerCode
 
     description: string
@@ -10,7 +10,7 @@ class Answer {
     }
 }
 
-enum AnswerCode {
+export enum AnswerCode {
     A,
     B,
     C,

@@ -1,4 +1,7 @@
-class Question {
+import {Answer, AnswerCode} from "./answer";
+
+
+export class Question {
     description: string;
     private readonly correctAnswerCode: AnswerCode
     answers: Answer[]
