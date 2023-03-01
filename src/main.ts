@@ -1,8 +1,54 @@
-import {Quiz} from "./quiz";
-import {AnswerCode} from "./answer";
-import {Question} from "./question";
+enum AnswerCode {
+    A,
+    B,
+    C,
+    D
+}
+
+class Answer {
+    code: AnswerCode
+
+    description: string
+
+
+    constructor(code: AnswerCode, description: string) {
+        this.code = code;
+        this.description = description;
+    }
+}
+
+class Question {
+    description: string;
+    private readonly correctAnswerCode: AnswerCode
+    answers: Answer[]
+
+    constructor(description: string, correctAnswerCode: AnswerCode, answers: Answer[]) {
+        this.description = description;
+        this.correctAnswerCode = correctAnswerCode;
+        this.answers = answers;
+    }
+
+    isCorrectAnswer(code: AnswerCode): boolean {
+        return code === this.correctAnswerCode
+    }
+}
+
+class Quiz {
+    questions: Question[] = []
+    score: number = 0
+
+    clear() {
+        this.score = 0;
+        this.questions = [];
+    }
+
+    incrementScore() {
+        this.score++;
+    }
+}
 
 let quiz: Quiz = new Quiz();
+quiz.questions.push(new Question("First question", AnswerCode.A, []))
 let currentQuestionIndex = 0
 
 function addQuestion(question: Question) {
@@ -31,9 +77,10 @@ function previousQuestion(): boolean {
 
 function answerQuestion(answerCode: AnswerCode) {
     console.log(`Answered with option ${answerCode.toString()}`)
+    console.log(quiz)
+    console.log(quiz.questions)
     if (quiz.questions[currentQuestionIndex].isCorrectAnswer(answerCode)) {
         quiz.incrementScore();
     }
     nextQuestion();
 }
-

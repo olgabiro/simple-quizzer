@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
-    <script data-main="src/main" src="./node_modules/requirejs/require.js"></script>
+    <script src="./main.js"></script>
 </head>
 <body>
 <div>
     <label>The question text:</label>
-    <button onclick="answerQuestion('A')">Option 1</button>
-    <button onclick="answerQuestion('B')">Option 2</button>
-    <button onclick="answerQuestion('C')">Option 3</button>
-    <button onclick="answerQuestion('D')">Option 4</button>
+    <button onclick="answerQuestion(AnswerCode.A)">Option 1</button>
+    <button onclick="answerQuestion(AnswerCode.B)">Option 2</button>
+    <button onclick="answerQuestion(AnswerCode.C)">Option 3</button>
+    <button onclick="answerQuestion(AnswerCode.D)">Option 4</button>
 </div>
 </body>
 </html>
