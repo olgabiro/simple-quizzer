@@ -48,7 +48,12 @@ class Quiz {
 }
 
 let quiz: Quiz = new Quiz();
-quiz.questions.push(new Question("First question", AnswerCode.A, []))
+quiz.questions.push(new Question("First questioneee", AnswerCode.A, [
+    new Answer(AnswerCode.A, "blabla"),
+    new Answer(AnswerCode.B, "bla"),
+    new Answer(AnswerCode.C, "blablaBla"),
+    new Answer(AnswerCode.D, "blaBlabla")
+]))
 let currentQuestionIndex = 0
 
 function addQuestion(question: Question) {
@@ -62,6 +67,7 @@ function clearQuiz() {
 function nextQuestion(): boolean {
     if (currentQuestionIndex < quiz.questions.length - 1) {
         currentQuestionIndex++;
+        fillQuestion()
         return true;
     }
     return false;
@@ -70,15 +76,24 @@ function nextQuestion(): boolean {
 function previousQuestion(): boolean {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
+        fillQuestion()
         return true;
     }
     return false;
 }
 
+function fillQuestion() {
+    console.log("filling out questions!")
+    let question = quiz.questions[currentQuestionIndex]
+    console.log(question)
+    document.getElementById("question-text")!.innerText = question.description
+    document.getElementById("answer-a-text")!.textContent = question.answers[0].description
+    document.getElementById("answer-b-text")!.textContent = question.answers[1].description
+    document.getElementById("answer-c-text")!.textContent = question.answers[2].description
+    document.getElementById("answer-d-text")!.textContent = question.answers[3].description
+}
+
 function answerQuestion(answerCode: AnswerCode) {
-    console.log(`Answered with option ${answerCode.toString()}`)
-    console.log(quiz)
-    console.log(quiz.questions)
     if (quiz.questions[currentQuestionIndex].isCorrectAnswer(answerCode)) {
         quiz.incrementScore();
     }
@@ -89,6 +104,7 @@ function saveQuiz() {
     quiz.clear()
     Array.from(document.getElementsByClassName("question")).map(it => createQuestion(it)).forEach(addQuestion);
     window.location.href = "./quiz.html"
+    fillQuestion()
 }
 
 function getInputValue(inputElement: Element) {
@@ -96,12 +112,10 @@ function getInputValue(inputElement: Element) {
 }
 
 function createQuestion(question: Element): Question {
-    console.log(question)
     let description = getInputValue(question.getElementsByClassName("question-text")
         .item(0)!);
     let answerTexts = Array.from(question.getElementsByClassName("answer-text"))
         .map(answer => getInputValue(answer))
-    console.log(answerTexts)
     let answers = [new Answer(AnswerCode.A, answerTexts[0]),
         new Answer(AnswerCode.B, answerTexts[1]),
         new Answer(AnswerCode.C, answerTexts[2]),
@@ -129,7 +143,6 @@ function displayNewQuestion() {
     let quiz = document.getElementById("questions")!;
     let template = document.getElementsByTagName("template")[0];
     let newQuestionIndex = quiz.childElementCount + 1
-    console.log(newQuestionIndex)
     let question = template.content.cloneNode(true);
     quiz.append(question)
     quiz.children.item(quiz.childElementCount - 1)!.getElementsByTagName("span")[0]!.textContent = newQuestionIndex.toString()
