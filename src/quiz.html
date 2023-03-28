@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
-    <script data-main="src/main" src="./node_modules/requirejs/require.js"></script>
+    <script src="./main.js"></script>
 </head>
-<body>
+<body onload="fillQuestion()">
 <div>
-    <label>The question text:</label>
-    <button onclick="answerQuestion('A')">Option 1</button>
-    <button onclick="answerQuestion('B')">Option 2</button>
-    <button onclick="answerQuestion('C')">Option 3</button>
-    <button onclick="answerQuestion('D')">Option 4</button>
+    <label id="question-text">The question text:</label>
+    <button onclick="answerQuestion(AnswerCode.A)">
+        <div id="answer-a-text">Option 1</div>
+    </button>
+    <button onclick="answerQuestion(AnswerCode.B)">
+        <div id="answer-b-text">Option 2</div>
+    </button>
+    <button onclick="answerQuestion(AnswerCode.C)">
+        <div id="answer-c-text">Option 3</div>
+    </button>
+    <button onclick="answerQuestion(AnswerCode.D)">
+        <div id="answer-d-text">Option 4</div>
+    </button>
 </div>
 </body>
 </html>

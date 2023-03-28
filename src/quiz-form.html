@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new quiz</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="quiz-form.css">
+</head>
+<body>
+
+<template id="question-template">
+    <div class="question">
+        <label>Question <span class="question_number">1</span></label>
+        <input type="text" class="question-text">
+
+        <div class="answer">
+            <label>A</label>
+            <input type="text" class="answer-text" name="a">
+            <div>
+                <input type="checkbox" name="correct-a" checked="checked"> Correct answer
+            </div>
+        </div>
+
+        <div class="answer">
+            <label>B</label>
+            <input type="text" class="answer-text" name="b">
+            <div>
+                <input type="checkbox" name="correct-b"> Correct answer
+            </div>
+        </div>
+
+        <div class="answer">
+            <label>C</label>
+            <input type="text" class="answer-text" name="c">
+            <div>
+                <input type="checkbox" name="correct-c"> Correct answer
+            </div>
+        </div>
+
+        <div class="answer">
+            <label>D</label>
+            <input type="text" class="answer-text" name="d">
+            <div>
+                <input type="checkbox" name="correct-d"> Correct answer
+            </div>
+        </div>
+    </div>
+</template>
+
+<form id="quiz">
+    <div class="quiz-name">
+        <label for="quiz-name">Quiz name</label>
+        <input type="text" id="quiz-name"/>
+    </div>
+
+    <div id="questions">
+        <div class="question">
+            <label>Question <span class="question_number">1</span></label>
+            <input type="text" class="question-text">
+
+            <div class="answer">
+                <label>A</label>
+                <input type="text" class="answer-text" name="a">
+                <div>
+                    <input type="checkbox" name="correct-a" checked="checked"> Correct answer
+                </div>
+            </div>
+
+            <div class="answer">
+                <label>B</label>
+                <input type="text" class="answer-text" name="b">
+                <div>
+                    <input type="checkbox" name="correct-b"> Correct answer
+                </div>
+            </div>
+
+            <div class="answer">
+                <label>C</label>
+                <input type="text" class="answer-text" name="c">
+                <div>
+                    <input type="checkbox" name="correct-c"> Correct answer
+                </div>
+            </div>
+
+            <div class="answer">
+                <label>D</label>
+                <input type="text" class="answer-text" name="d">
+                <div>
+                    <input type="checkbox" name="correct-d"> Correct answer
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" onclick="displayNewQuestion()" id="add-new-question">Add new question</button>
+    <button type="button" onclick="saveQuiz()" id="save">Save</button>
+</form>
+
+</body>
+</html>

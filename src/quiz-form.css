@@ -1,0 +1,34 @@
+body {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.quiz-name {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.question {
+    margin: 10px 10px 30px;
+}
+
+.answer {
+    margin: 10px;
+}
+
+.answer label {
+    margin: 2px;
+    margin-right: 20px;
+}
+
+.answer input, .answer label {
+    float: left;
+}
+
+input[type='checkbox'] {
+    float: left;
+    margin: 5px;
+    margin-left: 20px;
+}
