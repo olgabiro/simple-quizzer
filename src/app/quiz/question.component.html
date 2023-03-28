@@ -1,0 +1,9 @@
+<div>
+  <label id="question-text">{{ question?.description }}</label>
+
+  <div *ngFor="let answer of question?.answers">
+    <button type="button" (click)="correctAnswer.emit(answer.correct)">
+      <div id="answer-a-text">{{ answer.description }}</div>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div>
+  <div>Score: {{ quiz.score }}</div>
+</div>
+
+<app-question [question]="quiz.questions[currentQuestionIndex]" (correctAnswer)="answerQuestion($event)"></app-question>
+
+<button type="button" (click)="previousQuestion()">Previous question</button>
+<button type="button" (click)="nextQuestion()">Next question</button>
