@@ -9,4 +9,17 @@ mat-card {
 
 .result-card {
   background-color: rgba(152, 251, 152, 0.32);
+  max-width: 600px;
+  max-height: 120px;
+}
+
+.score {
+  max-width: 100%;
+  align-items: center;
+}
+
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
