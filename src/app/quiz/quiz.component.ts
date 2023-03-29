@@ -19,20 +19,20 @@ export class QuizComponent {
     this.nextQuestion();
   }
 
-  nextQuestion(): boolean {
-    if (this.currentQuestionIndex < this.quiz.questions.length - 1) {
+  nextQuestion() {
+    if (!this.isQuizFinished()) {
       this.currentQuestionIndex++;
-      return true;
     }
-    return false;
+
   }
 
-  previousQuestion(): boolean {
+  previousQuestion() {
     if (this.currentQuestionIndex > 0) {
       this.currentQuestionIndex--;
-      return true;
     }
-    return false;
   }
 
+  isQuizFinished(): boolean {
+    return this.currentQuestionIndex == this.quiz.questions.length
+  }
 }

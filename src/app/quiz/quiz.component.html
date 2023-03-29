@@ -2,7 +2,16 @@
   <div>Score: {{ quiz.score }}</div>
 </div>
 
-<app-question [question]="quiz.questions[currentQuestionIndex]" (correctAnswer)="answerQuestion($event)"></app-question>
+<div *ngIf="!isQuizFinished(); else showResult">
+  <app-question [question]="quiz.questions[currentQuestionIndex]"
+                (correctAnswer)="answerQuestion($event)"></app-question>
 
-<button type="button" (click)="previousQuestion()">Previous question</button>
-<button type="button" (click)="nextQuestion()">Next question</button>
+  <button type="button" (click)="previousQuestion()">Previous question</button>
+  <button type="button" (click)="nextQuestion()">Next question</button>
+</div>
+
+<ng-template #showResult>
+<div>
+  Congratulations! You finished the quiz with score of {{ quiz.score }}
+</div>
+</ng-template>
