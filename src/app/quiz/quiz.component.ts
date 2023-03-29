@@ -35,4 +35,9 @@ export class QuizComponent {
   isQuizFinished(): boolean {
     return this.currentQuestionIndex == this.quiz.questions.length
   }
+
+  resetQuiz() {
+    this.currentQuestionIndex = 0;
+    this.quiz.score = 0;
+  }
 }

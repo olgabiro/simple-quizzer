@@ -1,0 +1,12 @@
+mat-card {
+  max-width: 400px;
+  margin: 20px;
+}
+
+.answer {
+  width: 150px;
+}
+
+.result-card {
+  background-color: rgba(152, 251, 152, 0.32);
+}

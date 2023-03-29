@@ -1,9 +1,13 @@
-<div>
-  <label id="question-text">{{ question?.description }}</label>
+<mat-card class="question">
+  <mat-card-header>
+    <mat-card-title>{{ question?.description }}</mat-card-title>
+  </mat-card-header>
 
-  <div *ngFor="let answer of question?.answers">
-    <button type="button" (click)="correctAnswer.emit(answer.correct)">
-      <div id="answer-a-text">{{ answer.description }}</div>
-    </button>
-  </div>
-</div>
+  <mat-card-content>
+    <mat-action-list *ngFor="let answer of question?.answers">
+      <button mat-stroked-button color="accent" class="answer" (click)="correctAnswer.emit(answer.correct)">
+        <div id="answer-a-text">{{ answer.description }}</div>
+      </button>
+    </mat-action-list>
+  </mat-card-content>
+</mat-card>
